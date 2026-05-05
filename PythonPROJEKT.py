@@ -19,11 +19,30 @@
         return f"Produkt: {self.nazwa} | Cena: {self.cena:.2f} zł"
 
 
+class Elektronika(Produkt):
+    def __init__(self, nazwa, cena, gwarancja_miesiace):
+        super().__init__(nazwa, cena)
+        self.gwarancja = gwarancja_miesiace
+
+    def pokaz_szczegoly(self):
+        return f"[Elektronika] {self.nazwa} | Cena: {self.cena:.2f} zł | Gwarancja: {self.gwarancja} mies."
+
+class Odziez(Produkt):
+    def __init__(self, nazwa, cena, rozmiar):
+        super().__init__(nazwa, cena)
+        self.rozmiar = rozmiar
+
+    def pokaz_szczegoly(self):
+        return f"[Odzież] {self.nazwa} | Cena: {self.cena:.2f} zł | Rozmiar: {self.rozmiar}"
+
+
 if __name__ == "__main__":
-    print("--- ROZPOCZĘCIE SYSTEMU ---")
+    print("--- SKLEP INTERNETOWY - BAZA PRODUKTÓW ---")
     
-    produkt1 = Produkt("Zwykła koszulka", 49.99)
-    print(produkt1.pokaz_szczegoly())
+    tv = Elektronika("Telewizor Samsung", 2999.99, 24)
+    koszula = Odziez("Koszula flanelowa", 120.00, "XL")
+    zepsuty_telefon = Elektronika("Tani Smartfon", -50.00, 12)
     
-    produkt2 = Produkt("Dziurawy kubek", -15.50)
-    print(produkt2.pokaz_szczegoly())
+    print(tv.pokaz_szczegoly())
+    print(koszula.pokaz_szczegoly())
+    print(zepsuty_telefon.pokaz_szczegoly())
