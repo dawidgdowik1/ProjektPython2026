@@ -96,4 +96,4 @@ if __name__ == "__main__":
             print("Koniec programu.")
             break
         else:
-            print("Niepoprawny wybor, sprobuj ponownie.")
+            print("Niepoprawny wybor, sprobuj ponownie.")   
