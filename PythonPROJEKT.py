@@ -10,13 +10,13 @@
     @cena.setter
     def cena(self, wartosc):
         if wartosc < 0:
-            print(f"[Blad] Cena produktu '{self.nazwa}' nie moze byc ujemna! Ustawiono 0.0 zl.")
+            print(f"[Błąd] Cena produktu '{self.nazwa}' nie może być ujemna! Ustawiono 0.0 zł.")
             self._cena = 0.0
         else:
             self._cena = float(wartosc)
 
     def pokaz_szczegoly(self):
-        return f"Produkt: {self.nazwa} | Cena: {self.cena:.2f} zl"
+        return f"Produkt: {self.nazwa} | Cena: {self.cena:.2f} zł"
 
 
 class Elektronika(Produkt):
@@ -25,7 +25,7 @@ class Elektronika(Produkt):
         self.gwarancja = gwarancja_miesiace
 
     def pokaz_szczegoly(self):
-        return f"[Elektronika] {self.nazwa} | Cena: {self.cena:.2f} zl | Gwarancja: {self.gwarancja} mies."
+        return f"[Elektronika] {self.nazwa} | Cena: {self.cena:.2f} zł | Gwarancja: {self.gwarancja} mies."
 
 
 class Odziez(Produkt):
@@ -34,7 +34,7 @@ class Odziez(Produkt):
         self.rozmiar = rozmiar
 
     def pokaz_szczegoly(self):
-        return f"[Odziez] {self.nazwa} | Cena: {self.cena:.2f} zl | Rozmiar: {self.rozmiar}"
+        return f"[Odzież] {self.nazwa} | Cena: {self.cena:.2f} zł | Rozmiar: {self.rozmiar}"
 
 
 class Sklep:
@@ -46,22 +46,22 @@ class Sklep:
     def dodaj_produkt(self, produkt):
         self.asortyment.append(produkt)
 
-    # Wyswietlanie wszystkich produktow
+    # Wyświetlanie wszystkich produktów
     def pokaz_asortyment(self):
         print(f"\n--- Asortyment sklepu: {self.nazwa} ---")
         for produkt in self.asortyment:
             print(produkt.pokaz_szczegoly())
 
-    # Filtrowanie po cenie (lista skladana)
+    # Filtrowanie po cenie (lista składana)
     def filtruj_tanie_produkty(self, max_cena):
-        print(f"\n--- Produkty w cenie do {max_cena} zl ---")
+        print(f"\n--- Produkty w cenie do {max_cena} zł ---")
         tanie = [p for p in self.asortyment if p.cena <= max_cena]
         for p in tanie:
             print(p.pokaz_szczegoly())
 
-    # Filtrowanie po klasie (lista skladana)
+    # Filtrowanie po klasie (lista składana)
     def filtruj_tylko_odziez(self):
-        print("\n--- Tylko odziez ---")
+        print("\n--- Tylko odzież ---")
         ubrania = [p for p in self.asortyment if isinstance(p, Odziez)]
         for u in ubrania:
             print(u.pokaz_szczegoly())
@@ -70,30 +70,33 @@ class Sklep:
 if __name__ == "__main__":
     moj_sklep = Sklep("SuperMarket24")
 
-    # Dane startowe
-    moj_sklep.dodaj_produkt(Elektronika("Telewizor Samsung", 2999.99, 24))
-    moj_sklep.dodaj_produkt(Odziez("Koszula flanelowa", 120.00, "XL"))
-    moj_sklep.dodaj_produkt(Elektronika("Sluchawki bezprzewodowe", 199.00, 12))
+    # PRODUKT DO WYWOŁANIA BŁĘDU DO SCREENA:
+    moj_sklep.dodaj_produkt(Elektronika("Zepsuty telefon", -50.0, 12))
+
+    # Reszta danych startowych
+    moj_sklep.dodaj_produkt(Elektronika("Telefon Huawei", 999.99, 24))
+    moj_sklep.dodaj_produkt(Odziez("Koszulka NIKE", 120.00, "M"))
+    moj_sklep.dodaj_produkt(Elektronika("Słuchawki bezprzewodowe", 149.99, 12))
     
-    # Glowne menu programu
+    # Główne menu programu
     while True:
         print("\n=== MENU SKLEPU ===")
-        print("1. Pokaz caly asortyment")
-        print("2. Pokaz tylko odziez")
-        print("3. Pokaz produkty do danej kwoty")
-        print("4. Zakoncz program")
+        print("1. Pokaż cały asortyment")
+        print("2. Pokaż tylko odzież")
+        print("3. Pokaż produkty do danej kwoty")
+        print("4. Zakończ program")
         
-        wybor = input("Wybierz opcje (1-4): ")
+        wybor = input("Wybierz opcję (1-4): ")
         
         if wybor == '1':
             moj_sklep.pokaz_asortyment()
         elif wybor == '2':
             moj_sklep.filtruj_tylko_odziez()
         elif wybor == '3':
-            kwota = float(input("Podaj maksymalna cene: "))
+            kwota = float(input("Podaj maksymalną cenę: "))
             moj_sklep.filtruj_tanie_produkty(kwota)
         elif wybor == '4':
             print("Koniec programu.")
             break
         else:
-            print("Niepoprawny wybor, sprobuj ponownie.")   
+            print("Niepoprawny wybór, spróbuj ponownie.")
