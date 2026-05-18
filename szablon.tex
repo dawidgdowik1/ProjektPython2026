@@ -1,0 +1,82 @@
+% **** Szablon pracy magisterskiej, licencjackiej lub inżynierskiej ****
+
+\documentclass[polish,12pt,oneside,a4paper]{report}
+\renewcommand{\baselinestretch}{1.15} 
+
+\input{style.tex}
+\usepackage{float}
+
+%definicja przydatnych poleceń
+\newcommand{\wydzial}{KOLEGIUM INFORMATYKI STOSOWANEJ}
+\newcommand{\kierunek}{Kierunek: INFORMATYKA}
+
+\newcommand{\autor}{Dawid Gdowik}
+\newcommand{\album}{Nr albumu studenta 72413}
+\newcommand{\temat}{System zarządzania asortymentem sklepu internetowego w języku Python}
+\newcommand{\prowadzacy}{mgr inż. Aleksander Mysakowec}
+\newcommand{\typpracy}{Dokumentacja projektu}
+\newcommand{\miasto}{Rzeszów}
+\newcommand{\rok}{2026}
+
+\begin{document}
+
+% *************** Włączenie definicji pierwszych stron ***************
+\input{front.tex}
+
+
+% *************** Część główna pracy ***************
+\input{wstep.tex}
+
+\newpage
+\input{R1.tex}
+
+\input{R2.tex}
+\newpage
+
+
+\chapter{Podsumowanie i wnioski}
+
+W ramach projektu udało się stworzyć działający program do zarządzania produktami w sklepie internetowym. Aplikacja została napisana w języku Python z wykorzystaniem programowania obiektowego i pozwala użytkownikowi na wygodną obsługę przez menu w konsoli.
+
+\section{Wnioski końcowe}
+Podczas pisania i testowania programu udało się sformułować następujące wnioski:
+\begin{itemize}
+    \item \textbf{Wykorzystanie obiektowości}: Dzięki zastosowaniu dziedziczenia i polimorfizmu cały kod jest dobrze poukładany. Program potrafi bez problemu zarządzać różnymi typami produktów (elektronika i odzież) w ramach jednej wspólnej listy.
+    \item \textbf{Bezpieczeństwo i walidacja}: Hermetyzacja, czyli użycie getterów i setterów, pozwoliła skutecznie zabezpieczyć program przed błędami. System sam pilnuje, żeby nikt nie wpisał ujemnej ceny i automatycznie poprawia ją na zero.
+    \item \textbf{Skrócenie kodu}: Użycie list składanych (\textit{list comprehensions}) do filtrowania asortymentu sprawiło, że kod jest o wiele krótszy, bardziej czytelny i działa szybciej niż tradycyjne, długie pętle.
+\end{itemize}
+
+\section{Możliwości rozwoju programu}
+Przygotowana struktura aplikacji pozwala na jej łatwą rozbudowę w przyszłości. Program można w prosty sposób rozwinąć o dodatkowe funkcjonalności, takie jak:
+\begin{itemize}
+    \item Zapisywanie i wczytywanie produktów z plików zewnętrznych, na przykład w formacie JSON lub tekstowym.
+    \item Stworzenie okienkowego interfejsu użytkownika (GUI) zamiast czarnej konsoli, na przykład przy użyciu wbudowanej biblioteki Tkinter.
+\end{itemize}
+
+Podsumowując, aplikacja spełnia wszystkie założenia projektowe, działa stabilnie i poprawnie reaguje na podstawowe błędy użytkownika. Stanowi ona dobrą bazę pod większy system e-commerce.
+
+\section{Repozytorium GitHub i wersjonowanie}
+Podczas pracy nad projektem korzystałem z systemu kontroli wersji Git. Wszystkie pliki źródłowe programu, wraz z pełną historią wprowadzanych zmian, zostały wrzucone do zdalnego repozytorium w serwisie GitHub. Kod aplikacji jest dostępny publicznie pod adresem: \texttt
+\newline {https://github.com/dawidgdowik1/ProjektPython2026}. Dzięki temu projekt jest bezpiecznie zarchiwizowany i łatwy do podejrzenia przez przeglądarkę.
+
+\newpage
+% ***************** Bibliografia ******************
+\begin{thebibliography}{6}
+\addcontentsline{toc}{chapter}{Bibliografia}
+
+\bibitem{lutz} Lutz M., \textit{Python. Wprowadzenie}, Wydawnictwo Helion, Gliwice.
+\bibitem{ramalho} Ramalho L., \textit{Zaawansowany Python}, Wydawnictwo O'Reilly / Helion, Gliwice.
+\bibitem{python-doc} Python Software Foundation, \textit{Python Language Documentation}, https://docs.python.org/, [Dostęp: maj 2026].
+\bibitem{clean-code} Martin R. C., \textit{Czysty kod. Podręcznik dobrego programisty}, Wydawnictwo Helion, Gliwice.
+\bibitem{moodle-wsiz} \textit{Materiały dydaktyczne do zajęć z języka Python}, platforma Moodle WSIiZ, https://moodle.wsiz.edu.pl/pluginfile.php/502800/mod\_resource/content/1/v2\_Python.pdf, [Dostęp: maj 2026].
+\bibitem{mysakowec} Mysakowec A., \textit{Materiały do zajęć laboratoryjnych z przedmiotu Programowanie w języku R i Python}, Kolegium Informatyki Stosowanej, Wyższa Szkoła Informatyki i Zarządzania w Rzeszowie, rok akademicki 2025/2026.
+
+\end{thebibliography}
+
+\newpage
+
+% *************** Zakończenie ***************
+\input{back.tex}
+
+\end{document}
+% *************** Koniec pliku szablon.tex ***************

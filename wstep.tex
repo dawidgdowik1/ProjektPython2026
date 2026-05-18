@@ -1,0 +1,41 @@
+\chapter{Wstęp}
+
+\section{Informacje o projekcie}
+
+\subsection*{Temat projektu}
+Tematem niniejszego projektu jest projekt oraz implementacja systemu zarządzania asortymentem wirtualnego sklepu internetowego. Aplikacja została napisana w języku Python z naciskiem na wykorzystanie paradygmatu programowania zorientowanego obiektowo (OOP), co pozwala na elastyczną i skalowalną obsługę logiki biznesowej sklepu.
+
+\subsection*{Założenia projektu}
+Głównym założeniem jest stworzenie spójnego środowiska konsolowego, demonstrującego zaawansowane techniki programistyczne w języku Python. Projekt zakłada:
+\begin{itemize}
+    \item Strukturę opartą na klasach i obiektach, uwzględniającą hierarchię dziedziczenia i polimorfizm (klasy pochodne dziedziczące po klasie bazowej).
+    \item Hermetyzację danych przy użyciu właściwości (Gettery i Settery) w celu bezpiecznego zarządzania atrybutami (np. walidacja cen).
+    \item Integrację natywnych struktur danych oraz optymalizację ich przetwarzania z wykorzystaniem list składanych (\textit{list comprehensions}).
+    \item Przejrzysty podział logiki programu z wykorzystaniem funkcji.
+\end{itemize}
+
+\subsection*{Zastosowanie projektu}
+Opracowany system znajduje zastosowanie jako uproszczony model zaplecza (back-office) dla administratora sklepu internetowego. Pozwala na:
+\begin{itemize}
+    \item Zarządzanie katalogiem produktów z zachowaniem podziału na specyficzne kategorie asortymentowe (np. elektronika, odzież).
+    \item Szybkie filtrowanie i przeszukiwanie dostępnych produktów na podstawie zadanych kryteriów.
+    \item Demonstrację solidnej architektury kodu, która w przyszłości może stanowić fundament do rozbudowy o graficzny interfejs użytkownika (GUI) lub interfejs webowy.
+\end{itemize}
+
+\newpage
+\section{Analiza wymagań systemu}
+
+\subsection*{Wymagania funkcjonalne}
+\begin{itemize}
+    \item Tworzenie i modyfikacja obiektów reprezentujących unikalne produkty w ofercie sklepu.
+    \item Ewidencjonowanie specyficznych cech produktów w zależności od ich typu (np. deklaracja rozmiaru dla ubrań, okresu gwarancji dla sprzętu elektronicznego).
+    \item Filtrowanie bazy asortymentu w celu wyodrębnienia produktów spełniających określone warunki (np. poniżej maksymalnej kwoty).
+    \item Wyświetlanie sformatowanych raportów i szczegółowych informacji o stanie magazynowym poszczególnych pozycji.
+\end{itemize}
+
+\subsection*{Wymagania niefunkcjonalne}
+\begin{itemize}
+    \item \textbf{Integralność danych:} Wymuszenie poprawności wprowadzanych parametrów poprzez mechanizmy hermetyzacji (np. blokada możliwości przypisania produktom wartości ujemnych).
+    \item \textbf{Skalowalność i polimorfizm:} Architektura kodu bazująca na klasach pozwala na łatwe dodawanie kolejnych kategorii produktów w przyszłości bez ingerencji w główny rdzeń systemu.
+    \item \textbf{Wydajność operacji:} Zastosowanie list składanych skraca czas i złożoność pamięciową przeszukiwania list produktów względem klasycznych pętli.
+\end{itemize}
